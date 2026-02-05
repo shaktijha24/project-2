@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+        }
+        .gallery{
+            width: 400px;
+        }
+        #main{
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+        .thumbnail{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 12px;
+        }
+        .thumbnail img{
+            width: 97px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img id="main" src="picn\istockphoto-469738422-612x612.jpg">
+        <div class="thumbnail">
+            <img  src="picn\istockphoto-469738422-612x612.jpg" onclick="changeImg(this)">
+            <img  src="picn\tiger-eyes-looking-from-the-bushes-free-image.webp" onclick="changeImg(this)">
+            <img  src="picn\images.jpg" onclick="changeImg(this)">
+            <img  src="picn\images piv.jpg" onclick="changeImg(this)">
+            
+        </div>
+    </div>
+
+    <script>
+        function changeImg(img)
+    {
+        document.getElementById("main").src=img.src
+    }
+    </script>
+</body>
+</html>
+
+<!-- create a image of panda when you make a click left ear of panda the color is cahnge to teal..
+when you make click ear the hovarable text should be shown.. which will be display...  when you click vanish button both panda -->

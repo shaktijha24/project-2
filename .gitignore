@@ -1,0 +1,4 @@
+1. git --version
+2. git init
+3. git add . (add the files)
+4. git commit -m "first commit"

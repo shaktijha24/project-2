@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LPU TGPA Calculator</title>
+
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1d2671, #c33764);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 520px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.subject {
+  display: grid;
+  grid-template-columns: 1.6fr 0.6fr 0.6fr 0.3fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+input, select {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+input::placeholder {
+  color: #555;
+}
+
+.remove-btn {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.remove-btn:hover {
+  background: #e60000;
+}
+
+button.main {
+  width: 100%;
+  padding: 11px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-btn {
+  background: #00c853;
+  color: white;
+}
+
+.calc-btn {
+  background: #2979ff;
+  color: white;
+}
+
+.add-btn:hover {
+  background: #00a844;
+}
+
+.calc-btn:hover {
+  background: #1c5fd4;
+}
+
+.result {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>🎓 LPU TGPA Calculator</h2>
+
+  <div id="subjects"></div>
+
+  <button class="main add-btn" onclick="addSubject()">➕ Add Subject</button>
+  <button class="main calc-btn" onclick="calculateTGPA()">📊 Calculate TGPA</button>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+function addSubject() {
+  const div = document.createElement("div");
+  div.className = "subject";
+
+  div.innerHTML = `
+    <input type="text" placeholder="Subject Name">
+    <input type="number" placeholder="Credits" min="1" class="credit">
+    <select class="grade">
+      <option value="10">O</option>
+      <option value="9">A+</option>
+      <option value="8">A</option>
+      <option value="7">B+</option>
+      <option value="6">B</option>
+      <option value="5">C</option>
+      <option value="4">P</option>
+      <option value="0">F</option>
+    </select>
+    <button class="remove-btn" onclick="this.parentElement.remove()">✖</button>
+  `;
+
+  document.getElementById("subjects").appendChild(div);
+}
+
+// auto add first row
+addSubject();
+
+function calculateTGPA() {
+  const credits = document.querySelectorAll(".credit");
+  const grades = document.querySelectorAll(".grade");
+
+  let totalCredits = 0;
+  let totalPoints = 0;
+
+  for (let i = 0; i < credits.length; i++) {
+    const credit = Number(credits[i].value);
+    const gradePoint = Number(grades[i].value);
+
+    if (credit > 0) {
+      totalCredits += credit;
+      totalPoints += credit * gradePoint;
+    }
+  }
+
+  if (totalCredits === 0) {
+    document.getElementById("result").innerText =
+      "⚠ Please enter valid subject data!";
+    return;
+  }
+
+  const tgpa = (totalPoints / totalCredits).toFixed(2);
+  document.getElementById("result").innerText =
+    `✨ Your TGPA is: ${tgpa}`;
+}
+</script>
+
+</body>
+</html>

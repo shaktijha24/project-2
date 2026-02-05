@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            padding: 60px;
+            font-size: 30px;
+            text-align: center;
+            color: goldenrod;
+        }
+        /* Desktop device */
+        .container{
+            background-color: green;
+        }
+        /* mobile view */
+        @media(max-width:600px){
+            .container{
+                background-color: red;
+                font-size: 20px;
+            }
+        }
+        /* Tablet view  */
+        @media(min-width:601px) and (max-width:1024px){
+            container{
+                background-color: yellow;
+                color: black;
+                font-size: 15px;
+            };
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        resize the screen <br>
+        check for the color chanel
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .main{
+            position: relative;
+            background-color: green;
+        }
+        .relative{
+            position: relative;
+            left: 40px;
+            top: 40px;
+            background-color:red;
+        }
+        .absolute{
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            background-color: blueviolet;
+        }
+        .fixed{
+            position: fixed;
+            padding: 10px;
+            bottom: 10px;
+            left: 10px;
+            background-color: yellow;
+            padding: 10px;
+        } */
+        .display1 span{
+            background-color: blue;
+            margin: 20px;
+            padding: 20px;
+
+        }
+        .block{
+            display: block;
+        }
+        .inline{
+            display: inline;
+        }
+        .inline-block{
+            display: inline-block;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Postioning & Display Properties</h1>
+    <!--Postioning  Properties-->
+    <!--relative , absolute, fixed-->
+    <div class="main">
+        <!--stay in normal place but canbe move-->
+        <div class="relative">relative</div>
+        <!--can be move to any place where you want to move-->
+        <div class="absolute">absolute</div>
+        <!--not move even if you scroll the page-->
+        <div class="fixed">fixed</div>
+    </div>
+
+    <!--Display Properties-->
+    <!--block,inline, inline-block -->
+    <div class="display1">
+        <!--start from new line-->
+        <span class="block">block</span>
+        <!--in the same line-->
+        <span class="inline">inline</span>
+        <!--same as inline-->
+        <span class="inline-block">inline-block</span>
+    </div>
+    
+</body>
+</html>
